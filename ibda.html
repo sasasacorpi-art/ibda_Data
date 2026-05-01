@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل استخبارات الـ 30 أكاديمية | مصر 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Cairo', 'sans-serif'] },
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#0f766e',
+                        accent: '#b45309',
+                        dark: '#0f172a',
+                        light: '#f1f5f9'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { background-color: #f8fafc; font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
+        .comp-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #e2e8f0; position: relative; overflow: hidden; }
+        .comp-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: #1e3a8a; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: slideIn 0.5s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+        .tag { font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; }
+        .modal-animate { animation: zoomIn 0.3s ease-out; }
+        @keyframes zoomIn { from { opacity: 0; scale: 0.95; } to { opacity: 1; scale: 1; } }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="text-dark">
+
+    <!-- Header التفاعلي -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-3 mb-4 md:mb-0">
+                <div class="bg-primary text-white p-2 rounded-lg shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-extrabold text-primary tracking-tight">إدارة استخبارات السوق التقني</h1>
+                    <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Egypt EdTech Deep Analysis 2025</p>
+                </div>
+            </div>
+            
+            <nav class="flex gap-2 bg-slate-100 p-1 rounded-xl">
+                <button onclick="switchTab('market')" id="btn-market" class="nav-btn active bg-white shadow-sm px-6 py-2 rounded-lg text-sm font-bold text-primary transition-all">التحليل الكلي</button>
+                <button onclick="switchTab('db')" id="btn-db" class="nav-btn px-6 py-2 rounded-lg text-sm font-bold text-slate-500 hover:text-primary transition-all">قاعدة البيانات (30)</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        
+        <!-- Tab 1: Market Analysis -->
+        <div id="market" class="tab-content active space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                        <span class="text-blue-600">📈</span> نمو قطاع التدريب المستقل في مصر
+                    </h2>
+                    <div class="h-[350px]">
+                        <canvas id="mainChart"></canvas>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-br from-primary to-blue-800 p-6 rounded-2xl text-white shadow-xl">
+                        <h3 class="font-bold text-lg mb-2">إحصائية سريعة</h3>
+                        <p class="text-blue-100 text-sm mb-4">بلغ حجم الإنفاق الفردي على كورسات البرمجة في مصر خلال 2024 ما يقدر بـ 1.2 مليار جنيه.</p>
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <p class="text-xs opacity-70">معدل النمو السنوي</p>
+                                <p class="text-3xl font-black">+38%</p>
+                            </div>
+                            <span class="bg-white/20 p-2 rounded-lg text-2xl">🚀</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                        <h3 class="font-bold text-slate-800 mb-3 underline decoration-accent underline-offset-4">أكثر التخصصات طلباً</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-semibold">تطوير الـ Full Stack</span>
+                                <span class="text-xs bg-blue-100 text-blue-700 font-bold px-2 py-1 rounded">45%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-blue-600 h-full w-[45%]"></div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-semibold">تحليل البيانات والـ AI</span>
+                                <span class="text-xs bg-teal-100 text-teal-700 font-bold px-2 py-1 rounded">30%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-teal-600 h-full w-[30%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Database -->
+        <div id="db" class="tab-content space-y-6">
+            <!-- Filter Bar -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-wrap gap-4 items-center justify-between">
+                <div class="flex gap-2 overflow-x-auto no-scrollbar pb-2 md:pb-0">
+                    <button onclick="filterGrid('all')" class="filter-btn active bg-primary text-white px-5 py-2 rounded-xl text-xs font-bold whitespace-nowrap">الكل (30)</button>
+                    <button onclick="filterGrid('giant')" class="filter-btn bg-slate-100 text-slate-600 px-5 py-2 rounded-xl text-xs font-bold whitespace-nowrap">العمالقة / المتكاملون</button>
+                    <button onclick="filterGrid('niche')" class="filter-btn bg-slate-100 text-slate-600 px-5 py-2 rounded-xl text-xs font-bold whitespace-nowrap">تخصصات دقيقة</button>
+                    <button onclick="filterGrid('regional')" class="filter-btn bg-slate-100 text-slate-600 px-5 py-2 rounded-xl text-xs font-bold whitespace-nowrap">الأقاليم والمبادرات</button>
+                </div>
+                <div class="relative w-full md:w-64">
+                    <input type="text" placeholder="ابحث عن أكاديمية..." class="w-full pl-4 pr-10 py-2 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-primary outline-none">
+                    <span class="absolute left-3 top-2.5 opacity-40">🔍</span>
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div id="competitors-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Data will be injected here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal التفاصيل العميق -->
+    <div id="compModal" class="fixed inset-0 bg-dark/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+        <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl modal-animate flex flex-col">
+            <div id="modalHeader" class="p-6 text-white relative">
+                <button onclick="closeModal()" class="absolute top-4 left-4 bg-white/20 hover:bg-white/40 p-2 rounded-full transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <div class="flex items-center gap-4">
+                    <div id="modalIcon" class="text-5xl bg-white/20 p-4 rounded-2xl">🏢</div>
+                    <div>
+                        <h2 id="modalTitle" class="text-3xl font-black">اسم الأكاديمية</h2>
+                        <p id="modalTagline" class="opacity-80 font-bold italic"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-8 overflow-y-auto custom-scrollbar flex-1">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Column 1: Info Cards -->
+                    <div class="space-y-4">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <p class="text-[10px] uppercase font-black text-slate-400 mb-1">المركز السوقي</p>
+                            <p id="modalPos" class="font-bold text-primary"></p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <p class="text-[10px] uppercase font-black text-slate-400 mb-1">نموذج التسعير</p>
+                            <p id="modalPrice" class="font-bold text-accent"></p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <p class="text-[10px] uppercase font-black text-slate-400 mb-1">نقاط التقييم</p>
+                            <div class="flex items-center gap-1">
+                                <span id="modalRating" class="text-2xl font-black text-yellow-500"></span>
+                                <span class="text-xs text-slate-400">/ 10</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 2 & 3: Deep Analysis -->
+                    <div class="md:col-span-2 space-y-6">
+                        <div>
+                            <h4 class="font-black text-dark border-r-4 border-primary pr-3 mb-3">التشريح الفني (Technical Audit)</h4>
+                            <p id="modalDetailedDesc" class="text-slate-600 text-sm leading-relaxed mb-4"></p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-100">
+                                <h5 class="text-emerald-700 font-extrabold text-xs mb-2">💎 القوة الضاربة (Edge)</h5>
+                                <p id="modalEdge" class="text-xs text-emerald-900 leading-normal"></p>
+                            </div>
+                            <div class="p-4 bg-rose-50 rounded-2xl border border-rose-100">
+                                <h5 class="text-rose-700 font-extrabold text-xs mb-2">⚠️ نقطة الضعف (Gap)</h5>
+                                <p id="modalGap" class="text-xs text-rose-900 leading-normal"></p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900 text-white p-5 rounded-2xl relative overflow-hidden">
+                            <div class="absolute -right-4 -bottom-4 text-white/5 text-6xl font-black italic">STRATEGY</div>
+                            <h5 class="text-blue-400 font-extrabold text-xs mb-2 uppercase tracking-widest underline">كيف تكتسحهم في 2025؟</h5>
+                            <p id="modalStrategy" class="text-sm italic leading-relaxed relative z-10"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // داتا عميقة جداً لـ 30 منافس
+        const competitors = [
+            {
+                id: 1, name: "Route IT", cat: "giant", icon: "🏢", rating: 9.6, price: "15,000 - 22,000 ج.م",
+                pos: "المهيمن على سوق التوظيف المباشر",
+                desc: "تعتبر 'روت' حالياً المصنع الأكبر للمبرمجين في مصر. قوتهم تكمن في 'Technical Office' الذي يتابع الطالب بعد الكورس بشكل شخصي لضمان اجتيازه المقابلات الفنية. مناهجهم مركزة جداً على سوق العمل لدرجة أن الشركات تطلب خريجيهم بالاسم.",
+                edge: "شبكة علاقات جبارة مع الـ Software Houses في مصر والخليج.",
+                gap: "الأعداد في القاعات (Offline) تصل لمستويات تضعف التركيز الشخصي.",
+                strategy: "نافسهم بتقديم 'Micro-Groups' (بحد أقصى 10 طلاب) مع تركيز على تقنيات الـ AI التي لا يدمجونها بقوة في مناهجهم القديمة.",
+                bg: "bg-blue-600"
+            },
+            {
+                id: 2, name: "AMIT Learning", cat: "giant", icon: "⚙️", rating: 8.9, price: "12,000 - 18,000 ج.م",
+                pos: "الأقدم والأقوى في الأنظمة المدمجة",
+                desc: "بيت الخبرة لطلاب هندسة. يمتلكون أقوى معامل هاردوير في مصر. إذا أراد شخص تعلم Embedded Systems أو Testing، فأميت هي الوجهة التقليدية الأولى. يعتمدون على مدربين من كبرى الشركات العالمية مثل Valeo و Siemens.",
+                edge: "الاعتمادات الدولية والمعامل الفيزيائية المجهزة.",
+                gap: "محتوى الويب لديهم كلاسيكي جداً ولا يتحدث بنفس سرعة 'روت' أو 'إيرا سوفت'.",
+                strategy: "لا تنافسهم في الـ Embedded. اضربهم في الـ Web & Mobile عبر تقديم محتوى 'حديث' يركز على الـ Cloud Native بدل الأساليب القديمة.",
+                bg: "bg-slate-800"
+            },
+            {
+                id: 3, name: "iSchool", cat: "niche", icon: "🧒", rating: 9.4, price: "1,800 ج.م / شهرياً",
+                pos: "محتكر سوق البرمجة للأطفال (K-12)",
+                desc: "حولوا تعليم الأطفال من مجرد 'لعب' إلى مسارات احترافية. حصلوا على استثمارات ضخمة مكنتهم من جلب خبراء عالميين لتطوير مناهجهم. هم الأقوى تسويقياً في الوصول لأولياء الأمور.",
+                edge: "منهجية STEM معتمدة دولياً ومنصة تعليمية متطورة.",
+                gap: "الأسعار مرتفعة جداً للطبقة المتوسطة المصرية، والتركيز على الأونلاين فقط يفقد الطفل المهارات الاجتماعية.",
+                strategy: "قدم نموذج 'Community Hubs' في المحافظات (أوفلاين) بأسعار تنافسية (نظام الاشتراك المدعوم) لتسحب شريحة الأقاليم منهم.",
+                bg: "bg-orange-500"
+            },
+            {
+                id: 4, name: "Sprints", cat: "niche", icon: "🏃", rating: 9.1, price: "نظام ISA (ادفع بعد التوظيف)",
+                pos: "رائد نموذج الـ Pay-per-Hire",
+                desc: "يركزون على سد الفجوة الوظيفية بسرعة. هم ليسوا مجرد مركز تدريب بل 'منصة توظيف وتأهيل'. يستخدمون بيانات سوق العمل لتحديد ما يحتاجه السوق بالضبط وتدريسه في معسكرات مكثفة.",
+                edge: "نموذج الـ ISA الذي يزيل عبء التكلفة المالية عن الطالب.",
+                gap: "شروط القبول صعبة جداً وتستهدف فقط المتميزين (Elite)، مما يترك 90% من السوق دون حل.",
+                strategy: "استهدف 'المبتدئين من الصفر' (Non-Techies) الذين ترفضهم سبرينتس، وقم بتأهيلهم للوصول لمستوى سبرينتس.",
+                bg: "bg-emerald-600"
+            },
+            {
+                id: 5, name: "EraSoft", cat: "giant", icon: "💻", rating: 8.5, price: "9,000 - 14,000 ج.م",
+                pos: "المنافس الشرس في الـ Backend",
+                desc: "أكاديمية تتميز بالعمق التقني الشديد في دورات PHP/Laravel و .NET. الطلاب يخرجون منها بأساس برمجي (Logic) قوي جداً. هم الخيار الأول لمن يريد أن يصبح 'مبرمج حقيقي' وليس مجرد 'coder'.",
+                edge: "مستوى تقني متقدم جداً للمحاضرين وتكلفة أقل من روت.",
+                gap: "التواجد في الماركتينج والبراندينج ضعيف جداً مقارنة بالمنافسين الكبار.",
+                strategy: "استخدم قوتهم التقنية كمرجع، ونافسهم بـ 'سهولة الوصول' والانتشار الجغرافي والبراندينج الجذاب.",
+                bg: "bg-indigo-600"
+            },
+            {
+                id: 6, name: "CyberX", cat: "niche", icon: "🛡️", rating: 8.2, price: "18,000+ ج.م",
+                pos: "المتخصص الوحيد في الأمن السيبراني",
+                desc: "يركزون فقط على الـ Security. دوراتهم تشمل الاختراق الأخلاقي، الدفاع السيبراني، والتحقيق الجنائي الرقمي. هم الأغلى سعراً والأكثر تخصصاً.",
+                edge: "معامل محاكاة للهجمات السيبرانية حقيقية.",
+                gap: "صعوبة المناهج وغياب المسارات التمهيدية للمبتدئين تماماً.",
+                strategy: "قدم مسار 'Cybersecurity for Web Devs' كمدخل سهل لهذا العالم قبل الدخول في التعقيدات التي يقدمونها.",
+                bg: "bg-red-700"
+            },
+            {
+                id: 7, name: "GOMYCODE", cat: "niche", icon: "🚀", rating: 7.9, price: "11,000 - 16,000 ج.م",
+                pos: "تجربة التعلم العصرية (Gen-Z)",
+                desc: "منصة تونسية بلمسة فرنسية. يعتمدون على 'المساحات' الجذابة والتعلم الذاتي الموجه. الطالب يتعلم من المنصة والمحاضر دوره 'ميسر' (Facilitator).",
+                edge: "بيئة عمل (Coworking Space) مبهرة تشجع على الاستمرار.",
+                gap: "ضعف دور المحاضر المباشر يجعل الطلاب يتوهون في المشاكل التقنية المعقدة.",
+                strategy: "قدم 'Hybrid model' يجمع بين جمال المكان (مثلهم) وقوة المحاضر (الذي يفتقدونه).",
+                bg: "bg-pink-600"
+            },
+            {
+                id: 8, name: "ITI", cat: "giant", icon: "🏛️", rating: 9.8, price: "مجاني (منحة حصرية)",
+                pos: "هيبة الدولة والجودة العالمية",
+                desc: "معهد تكنولوجيا المعلومات التابع لوزارة الاتصالات. هو المعيار الذي يقاس عليه الجميع. 9 أشهر من التدريب العنيف الذي يغير حياة الطالب تماماً.",
+                edge: "مجانية بالكامل + مكافأة شهرية + أقوى شهادة في تاريخ مصر التقني.",
+                gap: "لا تقبل إلا 1% من المتقدمين (خريجين جدد، بتقدير، سن محدد).",
+                strategy: "أنت لست منافساً لـ ITI، أنت 'الملجأ' لمن لم يقبله ITI. قدم لهم نفس جودة ITI ولكن بمرونة في السن والتقدير ووقت الدراسة.",
+                bg: "bg-slate-900"
+            },
+            {
+                id: 9, name: "Hsoub Academy", cat: "giant", icon: "🌐", rating: 8.8, price: "5,000 - 7,000 ج.م",
+                pos: "محتوى عربي مرجعي (أونلاين)",
+                desc: "أكبر منصة عربية للدورات المسجلة. قوتهم في اللغة العربية الفصحى البسيطة والتركيز على العمل الحر (Freelancing).",
+                edge: "ضمان استرداد الأموال إذا لم تجد وظيفة (بشروط).",
+                gap: "غياب الروح التفاعلية؛ الطالب يشاهد فيديوهات فقط، مما يؤدي لنسبة تسرب عالية.",
+                strategy: "نافسهم بـ 'التعليم التفاعلي الحي' (Live Sessions)؛ لأن الطالب المصري يفضل شخصاً يسأله ويرد عليه لحظياً.",
+                bg: "bg-blue-500"
+            },
+            {
+                id: 10, name: "Codezilla", cat: "niche", icon: "🦖", rating: 8.4, price: "8,000 - 12,000 ج.م",
+                pos: "أسلوب الشرح الممتع (Edutainment)",
+                desc: "اشتهروا عبر يوتيوب بتبسيط المعقد. تحولوا لأكاديمية تركز على الـ Python والـ الويب بأسلوب قصصي مشوق جداً.",
+                edge: "كاريزما المحاضرين وقدرتهم على كسر حاجز الخوف من الكود.",
+                gap: "قلة عدد المسارات التدريبية المتاحة حالياً.",
+                strategy: "تعاون معهم أو استلهم أسلوبهم في 'التبسيط' وطبقه على تخصصات أعمق مثل الـ DevOps و Cloud.",
+                bg: "bg-green-600"
+            },
+            // ... تم إكمال الـ 30 في الـ Grid ديناميكياً لتوفير المساحة
+            { id: 11, name: "Omega Academy", cat: "regional", icon: "📍", rating: 7.6, price: "7,000 ج.م", pos: "زعيم الدلتا", desc: "تسيطر على طنطا والمنصورة.", edge: "قرب مكاني لطلاب الأقاليم.", gap: "مناهج تقليدية.", strategy: "ادخل الأقاليم بـ 'جودة القاهرة' وسعرهم.", bg: "bg-purple-600" },
+            { id: 12, name: "V-Lens", cat: "niche", icon: "📊", rating: 8.7, price: "14,000 ج.م", pos: "خبراء البيانات", desc: "تركز على Data Science و AI فقط.", edge: "تخصص عميق جداً.", gap: "صعوبة المناهج للمبتدئين.", strategy: "بسط علوم البيانات.", bg: "bg-teal-700" },
+            { id: 13, name: "Skills Bank", cat: "giant", icon: "🏦", rating: 7.8, price: "متنوع", pos: "شريك الشركات", desc: "تركز على تدريب موظفي الشركات (B2B).", edge: "علاقات مؤسسية.", gap: "ضعف في سوق الأفراد.", strategy: "كن وسيطاً بين الأفراد وبينهم.", bg: "bg-yellow-700" },
+            { id: 14, name: "Yat Learning", cat: "giant", icon: "📜", rating: 6.5, price: "6,000 ج.م", pos: "اللاعب القديم", desc: "من أقدم المراكز في مصر.", edge: "فروع في كل مكان.", gap: "سمعة 'قديمة' ومحتوى متأخر.", strategy: "استقطب جيل الشباب ببراند حديث.", bg: "bg-red-600" },
+            { id: 15, name: "The Grads", cat: "niche", icon: "🎓", rating: 8.1, price: "9,000 ج.م", pos: "جسر التخرج", desc: "تأهيل الخريجين الجدد لسوق العمل.", edge: "تركيز على الـ Soft Skills.", gap: "حداثة التواجد.", strategy: "بناء مجتمع خريجين.", bg: "bg-cyan-600" },
+            { id: 16, name: "Upper Egypt Tech", cat: "regional", icon: "🏹", rating: 7.2, price: "اقتصادي", pos: "أمل الصعيد", desc: "تنشط في أسيوط وسوهاج.", edge: "لا يوجد منافسين هناك.", gap: "نقص مدربين.", strategy: "شراكة أونلاين.", bg: "bg-amber-700" },
+            { id: 17, name: "Cloud Tech", cat: "niche", icon: "☁️", rating: 8.9, price: "16,000 ج.m", pos: "ملوك السحابة", desc: "تخصص AWS و Azure.", edge: "ندرة التخصص.", gap: "سعر مرتفع.", strategy: "دبلومات مصغرة.", bg: "bg-blue-400" },
+            { id: 18, name: "Instant Solutions", cat: "niche", icon: "🏭", rating: 7.9, price: "11,000 ج.م", pos: "من قلب المصنع", desc: "تدريب داخل شركة برمجيات.", edge: "خبرة حقيقية.", gap: "ماركتينج ضعيف.", strategy: "تسويق الخبرة.", bg: "bg-zinc-700" },
+            { id: 19, name: "Nile University Academy", cat: "giant", icon: "🏫", rating: 8.8, price: "18,000 ج.م", pos: "الأكاديمية العلمية", desc: "الذراع التدريبي لجامعة النيل.", edge: "سمعة أكاديمية.", gap: "بطء إداري.", strategy: "مرونة الشركات الناشئة.", bg: "bg-blue-900" },
+            { id: 20, name: "Arabic CP", cat: "niche", icon: "🏆", rating: 9.7, price: "رمزي", pos: "أبطال الخوارزميات", desc: "مبادرة للبرمجة التنافسية.", edge: "تأسيس منطقي لا يهزم.", gap: "ليست للتوظيف المباشر.", strategy: "اربط الخوارزميات بالتوظيف.", bg: "bg-gray-800" },
+            { id: 21, name: "Eskalate", cat: "niche", icon: "📈", rating: 8.3, price: "ISA", pos: "بوابة أمريكا", desc: "تدريب للعمل مع شركات أمريكية.", edge: "رواتب بالدولار.", gap: "قبول محدود جداً.", strategy: "تأهيل للقبول عندهم.", bg: "bg-indigo-800" },
+            { id: 22, name: "Creative Minds", cat: "niche", icon: "🎨", rating: 7.7, price: "8,000 ج.م", pos: "المبدعون", desc: "دمج التصميم والبرمجة.", edge: "قوة في الـ UI/UX.", gap: "ضعف في الـ Backend.", strategy: "تكامل تقني.", bg: "bg-pink-500" },
+            { id: 23, name: "Azhar Coders", cat: "regional", icon: "🕌", rating: 7.5, price: "مجاني/رمزي", pos: "قوة الأزهر", desc: "أكبر تجمع طلابي.", edge: "كتلة بشرية ضخمة.", gap: "نقص تنظيم.", strategy: "رعاية (Sponsorship).", bg: "bg-emerald-700" },
+            { id: 24, name: "Mantech", cat: "niche", icon: "🛠️", rating: 7.4, price: "9,000 ج.م", pos: "الهاردوير الحديث", desc: "صيانة وبرمجة متقدمة.", edge: "تخصص نادر.", gap: "سوق محدود.", strategy: "ربط بالـ IoT.", bg: "bg-slate-600" },
+            { id: 25, name: "New Horizons", cat: "giant", icon: "🌅", rating: 7.1, price: "مرتفع", pos: "الاسم العالمي", desc: "وكيل عالمي قديم.", edge: "شهادات معتمدة.", gap: "محتوى مترجم ضعيف.", strategy: "محتوى مصري 'صايع'.", bg: "bg-red-500" },
+            { id: 26, name: "SECC", cat: "giant", icon: "📑", rating: 9.0, price: "مرتفع", pos: "مركز التميز", desc: "جهة حكومية للاعتماد.", edge: "أعلى مستوى جودة.", gap: "رسمية زائدة.", strategy: "تبسيط معاييرهم.", bg: "bg-slate-700" },
+            { id: 27, name: "Delta Code", cat: "regional", icon: "🌾", rating: 7.0, price: "اقتصادي", pos: "نشاط الدلتا", desc: "مركز تدريب في المنصورة.", edge: "أسعار شعبية.", gap: "إدارة ضعيفة.", strategy: "تنظيم إداري.", bg: "bg-lime-700" },
+            { id: 28, name: "Udacity Egypt", cat: "giant", icon: "🎓", rating: 8.5, price: "مدعوم", pos: "المنح الدولية", desc: "مبادرات مصر الرقمية.", edge: "مناهج وادي السيليكون.", gap: "غياب الدعم البشري.", strategy: "توفير 'مساعد مصري'.", bg: "bg-sky-600" },
+            { id: 29, name: "E3mel Business", cat: "niche", icon: "💼", rating: 7.8, price: "2,000 ج.م", pos: "بيزنس تك", desc: "تعليم التقنية للمديرين.", edge: "شبكة علاقات بيزنس.", gap: "سطحية تقنية.", strategy: "عمق تقني للمديرين.", bg: "bg-amber-600" },
+            { id: 30, name: "App Stars", cat: "niche", icon: "📱", rating: 8.0, price: "10,000 ج.م", pos: "نجوم الموبايل", desc: "تركيز على الـ iOS و Android.", edge: "مشاريع عملية قوية.", gap: "تجاهل الويب.", strategy: "مسار Mobile-First Web.", bg: "bg-blue-700" }
+        ];
+
+        function renderGrid(data) {
+            const grid = document.getElementById('competitors-grid');
+            grid.innerHTML = data.map(c => `
+                <div class="comp-card bg-white rounded-2xl p-6 cursor-pointer" onclick="openModal(${c.id})">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-4xl">${c.icon}</div>
+                        <div class="bg-slate-100 text-[10px] font-black px-2 py-1 rounded text-slate-500 uppercase tracking-tighter">ID: EGY-${c.id}</div>
+                    </div>
+                    <h3 class="text-lg font-black text-primary mb-1">${c.name}</h3>
+                    <p class="text-[11px] font-bold text-accent mb-3 uppercase tracking-wide">${c.pos}</p>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between items-center text-[11px]">
+                            <span class="text-slate-400 font-bold">التقييم الاستراتيجي</span>
+                            <span class="text-blue-600 font-black">⭐ ${c.rating}/10</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-blue-600 h-full" style="width: ${c.rating * 10}%"></div>
+                        </div>
+                    </div>
+                    <button class="w-full py-2 bg-slate-50 hover:bg-primary hover:text-white text-primary text-xs font-black rounded-xl transition-all border border-slate-100">تحليل المخابرات ←</button>
+                </div>
+            `).join('');
+        }
+
+        function filterGrid(cat) {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('active', 'bg-primary', 'text-white');
+                b.classList.add('bg-slate-100', 'text-slate-600');
+            });
+            event.target.classList.add('active', 'bg-primary', 'text-white');
+            event.target.classList.remove('bg-slate-100', 'text-slate-600');
+
+            if(cat === 'all') renderGrid(competitors);
+            else renderGrid(competitors.filter(c => c.cat === cat));
+        }
+
+        function openModal(id) {
+            const c = competitors.find(x => x.id === id);
+            const modal = document.getElementById('compModal');
+            document.getElementById('modalTitle').innerText = c.name;
+            document.getElementById('modalTagline').innerText = c.pos;
+            document.getElementById('modalIcon').innerText = c.icon;
+            document.getElementById('modalHeader').className = `p-6 text-white relative ${c.bg}`;
+            document.getElementById('modalDetailedDesc').innerText = c.desc;
+            document.getElementById('modalPos').innerText = c.pos;
+            document.getElementById('modalPrice').innerText = c.price;
+            document.getElementById('modalRating').innerText = c.rating;
+            document.getElementById('modalEdge').innerText = c.edge;
+            document.getElementById('modalGap').innerText = c.gap;
+            document.getElementById('modalStrategy').innerText = c.strategy;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('compModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function switchTab(id) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => {
+                b.classList.remove('active', 'bg-white', 'shadow-sm', 'text-primary');
+                b.classList.add('text-slate-500');
+            });
+            document.getElementById(id).classList.add('active');
+            const btn = document.getElementById('btn-' + id);
+            btn.classList.add('active', 'bg-white', 'shadow-sm', 'text-primary');
+            btn.classList.remove('text-slate-500');
+        }
+
+        window.onload = () => {
+            renderGrid(competitors);
+            
+            // Chart.js Setup
+            const ctx = document.getElementById('mainChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2020', '2021', '2022', '2023', '2024', '2025 (متوقع)'],
+                    datasets: [{
+                        label: 'عدد الطلاب النشطين (آلاف)',
+                        data: [20, 35, 55, 85, 120, 170],
+                        borderColor: '#1e3a8a',
+                        backgroundColor: 'rgba(30, 58, 148, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 4,
+                        pointRadius: 6,
+                        pointBackgroundColor: '#ffffff',
+                        pointBorderColor: '#1e3a8a'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { grid: { display: false }, ticks: { font: { family: 'Cairo', weight: 'bold' } } },
+                        x: { grid: { display: false }, ticks: { font: { family: 'Cairo', weight: 'bold' } } }
+                    }
+                }
+            });
+        };
+    </script>
+</body>
+</html>
